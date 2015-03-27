@@ -4,15 +4,13 @@
 
   app = angular.module('simpleDisqus', []);
 
-  app.directive('disqus', [
-    '$document', '$compile', function($document, $compile) {
+  app.directive('disqus', function() {
       return {
         restrict: 'A',
         template: '<div id="disqus_thread"></div>',
         scope: {
           shortname: '@'
         },
-        replace: true,
         link: function($scope, $elem, $attrs) {
           var script;
           script = document.createElement('script');
@@ -23,6 +21,6 @@
         }
       };
     }
-  ]);
+  );
 
 }).call(this);
